@@ -189,58 +189,6 @@
 
       <div class="body-wrap">
   
-    <article id="post-TestHexo" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/22/TestHexo/" class="article-date">
-  	<time datetime="2016-07-22T11:55:04.000Z" itemprop="datePublished">2016-07-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/22/TestHexo/">TestHexo</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-UIButton点击事件响应延迟问题解决" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -271,30 +219,62 @@
 <ul>
 <li>问题表现<blockquote>
 <p>我在UITableView的Header上添加了一个视图（FiltersView），FiltersView上面添加了不定数量的 UIButton。点击UIButton 字体颜色和 layer 的 border 颜色发生改变。但是，当我快速点击快速抬起的时候，发现按钮颜色和border的颜色并没有发生改变；只有在手指停留在屏幕上的时间稍长一点的时候才会有响应事件触发。</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li>点击之前的效果</li>
-</ul>
-<p><img src="http://img.blog.csdn.net/20160707095553696" alt="这是点击前的效果"></p>
-<ul>
-<li>点击之后应该有的效果<br><img src="http://img.blog.csdn.net/20160707095714119" alt="点击之后应该有的效果"></li>
-</ul>
-<ul>
-<li>问题分析<br>响应事件延迟有两种情况：</li>
-<li><p>#####1. UIButton 的event事件调用错误   </p>
-<pre><code>在这个网友的日志里看到一些内容，大体如下：
-</code></pre><p>UIControlEventTouchDown<br>单点触摸按下事件：用户点触屏幕，或者又有新手指落下的时候。<br>UIControlEventTouchDownRepeat<br>多点触摸按下事件，点触计数大于1：用户按下第二、三、或第四根手指的时候。<br>UIControlEventTouchDragInside<br>当一次触摸在控件窗口内拖动时。<br>UIControlEventTouchDragOutside<br>当一次触摸在控件窗口之外拖动时。<br>UIControlEventTouchDragEnter<br>当一次触摸从控件窗口之外拖动到内部时。<br>UIControlEventTouchDragExit<br>当一次触摸从控件窗口内部拖动到外部时。  </p>
-</li>
-</ul>
-<hr>
-<p>UIControlEventTouchUpInside<br>所有在控件之内触摸抬起事件。<br>UIControlEventTouchUpOutside<br>所有在控件之外触摸抬起事件(点触必须开始与控件内部才会发送通知)。<br>UIControlEventTouchCancel<br>所有触摸取消事件，即一次触摸因为放上了太多手指而被取消，或者被上锁或者电话呼叫打断。<br>UIControlEventTouchChanged<br>当控件的值发生改变时，发送通知。用于滑块、分段控件、以及其他取值的控件。你可以配置滑块控件何时发送通知，在滑块被放下时发送，或者在被拖动时发送。<br>UIControlEventEditingDidBegin<br>当文本控件中开始编辑时发送通知。<br>UIControlEventEditingChanged<br>当文本控件中的文本被改变时发送通知。<br>UIControlEventEditingDidEnd<br>当文本控件中编辑结束时发送通知。<br>UIControlEventEditingDidOnExit<br>当文本控件内通过按下回车键（或等价行为）结束编辑时，发送通知。<br>UIControlEventAlltouchEvents<br>通知所有触摸事件。<br>UIControlEventAllEditingEvents<br>通知所有关于文本编辑的事件。<br>UIControlEventAllEvents<br>通知所有事件。</p>
-<ol>
-<li>父试图拦截了触摸事件 （手势冲突，或者交互的别的什么原因）<br>经过多方查证，可能造成父试图拦截的情况分别是 UIScrollVIew 和UITableView。系统默认<strong><em>delaysTouchesBegan</em></strong> 属性为YES, 设置 <strong><em>delaysTouchesBegan</em></strong> 属性 为NO即可解决延时响应问题。</li>
-</ol>
-<p><strong>原因</strong>：iOS 7+系统 ，手触摸到屏幕后系统会有 150ms的时间去反应并判断，你是否是正常点击和不经意间的点击。手触摸屏幕时间超过 150ms UIScrollView 或者UITableView  才会把触摸事件分发给各个子视图。否则，会被其拦截。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/07/22/UIButton点击事件响应延迟问题解决/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-TestHexo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/22/TestHexo/" class="article-date">
+  	<time datetime="2016-07-22T11:55:04.000Z" itemprop="datePublished">2016-07-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/22/TestHexo/">TestHexo</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
       
     </div>
     
@@ -346,16 +326,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+        <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.<br>
       
     </div>
     
@@ -364,6 +335,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/07/22/hello-world/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
