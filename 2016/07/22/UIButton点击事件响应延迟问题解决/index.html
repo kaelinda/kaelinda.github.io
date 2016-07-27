@@ -20,7 +20,7 @@
 我在UITableView的Header上添加了一个视图（FiltersView），FiltersView上面添加了不定数量的 UIButton。点击UIButton 字体颜色和 layer 的 border 颜色发生改变。但是，当我快速点击快速抬起的时候，发现按钮颜色和border的颜色并没有发生改变；只有在手指停留在屏幕上的时间稍长一点">
 <meta property="og:image" content="http://img.blog.csdn.net/20160707095553696">
 <meta property="og:image" content="http://img.blog.csdn.net/20160707095714119">
-<meta property="og:updated_time" content="2016-07-24T15:34:55.000Z">
+<meta property="og:updated_time" content="2016-07-27T06:14:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIButton 点击事件响应延迟 问题解决">
 <meta name="twitter:description" content="UIButton 点击事件响应延迟 问题解决
@@ -92,7 +92,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -129,7 +129,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/啊哈/" style="font-size: 10px;">啊哈</a> <a href="/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/tags/蹦跶/" style="font-size: 10px;">蹦跶</a>
+						<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/OC/" style="font-size: 10px;">OC</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/安卓/" style="font-size: 10px;">安卓</a>
 					</div>
 				</section>
 				
@@ -138,7 +138,11 @@
 				<section class="switch-part switch-part3">
 					<div id="js-friends">
 					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cocoachina.com/">cocoachina</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.open-open.com/code/">深度开源</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://segmentfault.com/">segmentfault</a>
 			        
 			        </div>
 				</section>
@@ -229,12 +233,12 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/啊哈/">啊哈</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蹦跶/">蹦跶</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OC/">OC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/programming/">编程</a>
+	<a class="article-category-link" href="/categories/programming/">编程</a><a class="article-category-link" href="/categories/programming/OC/">OC</a><a class="article-category-link" href="/categories/programming/OC/Swift/">Swift</a><a class="article-category-link" href="/categories/programming/OC/Swift/CSS/">CSS</a>
 	</div>
 
 
@@ -261,11 +265,13 @@
 </ul>
 <ul>
 <li>问题分析<br>响应事件延迟有两种情况：</li>
-<li><p>#####1. UIButton 的event事件调用错误   </p>
+</ul>
+<ol>
+<li><p>UIButton 的event事件调用错误   </p>
 <pre><code>在这个网友的日志里看到一些内容，大体如下：
 </code></pre><p>UIControlEventTouchDown<br>单点触摸按下事件：用户点触屏幕，或者又有新手指落下的时候。<br>UIControlEventTouchDownRepeat<br>多点触摸按下事件，点触计数大于1：用户按下第二、三、或第四根手指的时候。<br>UIControlEventTouchDragInside<br>当一次触摸在控件窗口内拖动时。<br>UIControlEventTouchDragOutside<br>当一次触摸在控件窗口之外拖动时。<br>UIControlEventTouchDragEnter<br>当一次触摸从控件窗口之外拖动到内部时。<br>UIControlEventTouchDragExit<br>当一次触摸从控件窗口内部拖动到外部时。  </p>
 </li>
-</ul>
+</ol>
 <hr>
 <p>UIControlEventTouchUpInside<br>所有在控件之内触摸抬起事件。<br>UIControlEventTouchUpOutside<br>所有在控件之外触摸抬起事件(点触必须开始与控件内部才会发送通知)。<br>UIControlEventTouchCancel<br>所有触摸取消事件，即一次触摸因为放上了太多手指而被取消，或者被上锁或者电话呼叫打断。<br>UIControlEventTouchChanged<br>当控件的值发生改变时，发送通知。用于滑块、分段控件、以及其他取值的控件。你可以配置滑块控件何时发送通知，在滑块被放下时发送，或者在被拖动时发送。<br>UIControlEventEditingDidBegin<br>当文本控件中开始编辑时发送通知。<br>UIControlEventEditingChanged<br>当文本控件中的文本被改变时发送通知。<br>UIControlEventEditingDidEnd<br>当文本控件中编辑结束时发送通知。<br>UIControlEventEditingDidOnExit<br>当文本控件内通过按下回车键（或等价行为）结束编辑时，发送通知。<br>UIControlEventAlltouchEvents<br>通知所有触摸事件。<br>UIControlEventAllEditingEvents<br>通知所有关于文本编辑的事件。<br>UIControlEventAllEvents<br>通知所有事件。</p>
 <ol>
@@ -336,6 +342,26 @@
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="UIButton点击事件响应延迟问题解决" data-title="UIButton 点击事件响应延迟 问题解决" data-url="http://doomedkael.com/2016/07/22/UIButton点击事件响应延迟问题解决/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
 
 
 </div>
@@ -366,7 +392,7 @@
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false
+		open_in_new: true
 	}
 </script>
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
