@@ -4,18 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>languages | DoomedKael</title>
+  <title>播放器横竖屏 屏幕旋转问题 | DoomedKael</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人博客尝试下新东西">
-<meta property="og:type" content="website">
-<meta property="og:title" content="languages">
-<meta property="og:url" content="http://doomedkael.com/languages/index.html">
+  <meta name="description" content="#播放器横竖屏 屏幕旋转问题
+
+#问题：现在又界面节目List界面A，和播放器界面B.A界面只支持竖屏，B界面只支持横屏。由A界面跳转到B界面，返回到A界面的时候，屏幕会闪一下（iOS 9比较明显，iOS8看不出来，模拟器iOS9会更明显）。同时，A界面POP到上一个界面的时候，也会闪一下，并且，侧滑返回手势失效！！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="播放器横竖屏 屏幕旋转问题">
+<meta property="og:url" content="http://doomedkael.com/2016/07/27/播放器横竖屏_屏幕旋转问题/index.html">
 <meta property="og:site_name" content="DoomedKael">
-<meta property="og:description" content="个人博客尝试下新东西">
-<meta property="og:updated_time" content="2016-07-24T15:34:41.000Z">
+<meta property="og:description" content="#播放器横竖屏 屏幕旋转问题
+
+#问题：现在又界面节目List界面A，和播放器界面B.A界面只支持竖屏，B界面只支持横屏。由A界面跳转到B界面，返回到A界面的时候，屏幕会闪一下（iOS 9比较明显，iOS8看不出来，模拟器iOS9会更明显）。同时，A界面POP到上一个界面的时候，也会闪一下，并且，侧滑返回手势失效！！">
+<meta property="og:updated_time" content="2016-07-27T06:39:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="languages">
-<meta name="twitter:description" content="个人博客尝试下新东西">
+<meta name="twitter:title" content="播放器横竖屏 屏幕旋转问题">
+<meta name="twitter:description" content="#播放器横竖屏 屏幕旋转问题
+
+#问题：现在又界面节目List界面A，和播放器界面B.A界面只支持竖屏，B界面只支持横屏。由A界面跳转到B界面，返回到A界面的时候，屏幕会闪一下（iOS 9比较明显，iOS8看不出来，模拟器iOS9会更明显）。同时，A界面POP到上一个界面的时候，也会闪一下，并且，侧滑返回手势失效！！">
   
     <link rel="alternative" href="/atom.xml" title="DoomedKael" type="application/atom+xml">
   
@@ -195,11 +201,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-播放器横竖屏_屏幕旋转问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/languages/index.html" class="article-date">
-  	<time datetime="2016-07-24T15:33:30.000Z" itemprop="datePublished">2016-07-24</time>
+      <a href="/2016/07/27/播放器横竖屏_屏幕旋转问题/" class="article-date">
+  	<time datetime="2016-07-27T11:55:04.000Z" itemprop="datePublished">2016-07-27</time>
 </a>
     </div>
   
@@ -212,7 +218,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      languages
+      播放器横竖屏 屏幕旋转问题
     </h1>
   
 
@@ -220,7 +226,15 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OC/">OC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
+	</div>
+
         
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/programming/">编程</a><a class="article-category-link" href="/categories/programming/OC/">OC</a><a class="article-category-link" href="/categories/programming/OC/Swift/">Swift</a><a class="article-category-link" href="/categories/programming/OC/Swift/PUSH/">PUSH</a>
+	</div>
+
 
         <div class="clearfix"></div>
       </div>
@@ -228,13 +242,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>#播放器横竖屏 屏幕旋转问题</p>
+<ul>
+<li><p>#问题：<br>现在又界面节目List界面A，和播放器界面B.<br>A界面只支持竖屏，B界面只支持横屏。<br>由A界面跳转到B界面，返回到A界面的时候，屏幕会闪一下（iOS 9比较明显，iOS8看不出来，模拟器iOS9会更明显）。同时，A界面POP到上一个界面的时候，也会闪一下，并且，侧滑返回手势失效！！</p>
+<!-- 查看详情 -->
+<a id="more"></a>
+</li>
+<li><p>#原因分析：<br>横屏跳转到竖屏，没有一个中间过渡 动画没法执行，所以看起来会闪一下。</p>
+</li>
+<li><p>#问题解决：   </p>
+</li>
+</ul>
+<p>1、两个界面中间加一个过度界面 bufferPage 。BufferPage 支持所有方向。<br>A -&gt; bufferPage -&gt; B<br>或者<br>B -&gt; bufferPage -&gt; A<br>这两种跳转中间都有一个过度界面作为动画的缓冲区，这样Navigation的堆栈上对于屏幕支持上也不会混乱。</p>
+<p>2、只处理B界面。把bufferPage融入到B界面。<br>进入到B界面起初，可以让B界面先是支持所有方向，并允许旋转。然后，旋转屏幕到横屏，这时只让B支持横屏不支持竖屏。<br>从B界面返回只支持竖屏的A界面之前，先让屏幕支持所有方向，并旋转屏幕到竖屏，立即POP返回A界面。</p>
+
       
     </div>
     
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2016/07/22/TestHexo副本 3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TestHexo</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -273,6 +310,26 @@
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="播放器横竖屏_屏幕旋转问题" data-title="播放器横竖屏 屏幕旋转问题" data-url="http://doomedkael.com/2016/07/27/播放器横竖屏_屏幕旋转问题/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
 
 
 </div>
@@ -299,7 +356,7 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
