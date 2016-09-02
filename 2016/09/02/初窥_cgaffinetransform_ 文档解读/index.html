@@ -84,22 +84,46 @@
 
 
 
-<meta name="description" content="#播放器横竖屏 屏幕旋转问题
+<meta name="description" content="初窥 CGAffineTransform  文档解读
 
-#问题：现在又界面节目List界面A，和播放器界面B.A界面只支持竖屏，B界面只支持横屏。由A界面跳转到B界面，返回到A界面的时候，屏幕会闪一下（iOS 9比较明显，iOS8看不出来，模拟器iOS9会更明显）。同时，A界面POP到上一个界面的时候，也会闪一下，并且，侧滑返回手势失效！！">
+序言其实  CGAffineTransform 是一个结构体    
+struct CGAffineTransform {    
+CGFloat a, b, c, d;    
+CGFloat tx, ty;    
+};    
+
+
+
+博主小手一抖，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="播放器横竖屏 屏幕旋转问题">
-<meta property="og:url" content="http://doomedkael.com/2016/07/27/播放器横竖屏_屏幕旋转问题/index.html">
+<meta property="og:title" content="初窥 CGAffineTransform 文档解读">
+<meta property="og:url" content="http://doomedkael.com/2016/09/02/初窥_cgaffinetransform_ 文档解读/index.html">
 <meta property="og:site_name" content="DoomedKael">
-<meta property="og:description" content="#播放器横竖屏 屏幕旋转问题
+<meta property="og:description" content="初窥 CGAffineTransform  文档解读
 
-#问题：现在又界面节目List界面A，和播放器界面B.A界面只支持竖屏，B界面只支持横屏。由A界面跳转到B界面，返回到A界面的时候，屏幕会闪一下（iOS 9比较明显，iOS8看不出来，模拟器iOS9会更明显）。同时，A界面POP到上一个界面的时候，也会闪一下，并且，侧滑返回手势失效！！">
-<meta property="og:updated_time" content="2016-07-27T06:39:24.000Z">
+序言其实  CGAffineTransform 是一个结构体    
+struct CGAffineTransform {    
+CGFloat a, b, c, d;    
+CGFloat tx, ty;    
+};    
+
+
+
+博主小手一抖，">
+<meta property="og:updated_time" content="2016-09-02T15:51:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="播放器横竖屏 屏幕旋转问题">
-<meta name="twitter:description" content="#播放器横竖屏 屏幕旋转问题
+<meta name="twitter:title" content="初窥 CGAffineTransform 文档解读">
+<meta name="twitter:description" content="初窥 CGAffineTransform  文档解读
 
-#问题：现在又界面节目List界面A，和播放器界面B.A界面只支持竖屏，B界面只支持横屏。由A界面跳转到B界面，返回到A界面的时候，屏幕会闪一下（iOS 9比较明显，iOS8看不出来，模拟器iOS9会更明显）。同时，A界面POP到上一个界面的时候，也会闪一下，并且，侧滑返回手势失效！！">
+序言其实  CGAffineTransform 是一个结构体    
+struct CGAffineTransform {    
+CGFloat a, b, c, d;    
+CGFloat tx, ty;    
+};    
+
+
+
+博主小手一抖，">
 
 
 
@@ -120,9 +144,9 @@
 
 
 
-  <link rel="canonical" href="http://doomedkael.com/2016/07/27/播放器横竖屏_屏幕旋转问题/"/>
+  <link rel="canonical" href="http://doomedkael.com/2016/09/02/初窥_cgaffinetransform_ 文档解读/"/>
 
-  <title> 播放器横竖屏 屏幕旋转问题 | DoomedKael </title>
+  <title> 初窥 CGAffineTransform 文档解读 | DoomedKael </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -272,7 +296,7 @@
             
             
               
-                播放器横竖屏 屏幕旋转问题
+                初窥 CGAffineTransform 文档解读
               
             
           </h1>
@@ -284,8 +308,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-27T19:55:04+08:00" content="2016-07-27">
-              2016-07-27
+            <time itemprop="dateCreated" datetime="2016-09-02T00:00:00+08:00" content="2016-09-02">
+              2016-09-02
             </time>
           </span>
 
@@ -367,19 +391,66 @@
       
 
       
-        <p>#播放器横竖屏 屏幕旋转问题</p>
+        <p>初窥 CGAffineTransform  文档解读</p>
 <ul>
-<li><p>#问题：<br>现在又界面节目List界面A，和播放器界面B.<br>A界面只支持竖屏，B界面只支持横屏。<br>由A界面跳转到B界面，返回到A界面的时候，屏幕会闪一下（iOS 9比较明显，iOS8看不出来，模拟器iOS9会更明显）。同时，A界面POP到上一个界面的时候，也会闪一下，并且，侧滑返回手势失效！！</p>
-<!-- 查看详情 -->
-<a id="more"></a>
-</li>
-<li><p>#原因分析：<br>横屏跳转到竖屏，没有一个中间过渡 动画没法执行，所以看起来会闪一下。</p>
-</li>
-<li><p>#问题解决：   </p>
+<li><strong>序言</strong><br><strong>其实  <code>CGAffineTransform</code> 是一个结构体</strong>    <blockquote>
+<p>struct CGAffineTransform {    </p>
+<pre><code>CGFloat a, b, c, d;    
+CGFloat tx, ty;    
+</code></pre><p>};    </p>
+</blockquote>
 </li>
 </ul>
-<p>1、两个界面中间加一个过度界面 bufferPage 。BufferPage 支持所有方向。<br>A -&gt; bufferPage -&gt; B<br>或者<br>B -&gt; bufferPage -&gt; A<br>这两种跳转中间都有一个过度界面作为动画的缓冲区，这样Navigation的堆栈上对于屏幕支持上也不会混乱。</p>
-<p>2、只处理B界面。把bufferPage融入到B界面。<br>进入到B界面起初，可以让B界面先是支持所有方向，并允许旋转。然后，旋转屏幕到横屏，这时只让B支持横屏不支持竖屏。<br>从B界面返回只支持竖屏的A界面之前，先让屏幕支持所有方向，并旋转屏幕到竖屏，立即POP返回A界面。</p>
+<p>博主小手一抖，<br><!-- 查看详情 --><br><a id="more"></a><br>初始化成这样：’CGAffineTransform *transform = CGAffineTransformIdentity;’这样Xcode是会报错的，然后查验方法却总是找不到错误，自已一查，妹的！竟然是初始化的时候数据类型有错误。）</p>
+<hr>
+<p><strong>下面步入正题</strong>    </p>
+<hr>
+<ol>
+<li><p><strong>The identity transform: [ 1 0 0 1 0 0 ].</strong><br><strong>返回单位矩阵</strong></p>
+<blockquote>
+<p>CG_EXTERN const CGAffineTransform CGAffineTransformIdentity<br>CG_AVAILABLE_STARTING(<strong>MAC_10_0, </strong>IPHONE_2_0);    </p>
+</blockquote>
+</li>
+<li><p><strong>Return the transform [ a b c d tx ty ].</strong><br><strong>返回矩阵</strong></p>
+<blockquote>
+<p>CG_EXTERN CGAffineTransform CGAffineTransformMake(CGFloat a, CGFloat b,<br>CGFloat c, CGFloat d, CGFloat tx, CGFloat ty)<br>CG_AVAILABLE_STARTING(<strong>MAC_10_0, </strong>IPHONE_2_0);</p>
+</blockquote>
+</li>
+<li><p><strong>Return a transform which translates by ‘(tx, ty)’:</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">t = [ 1 0 0 1 tx ty ]</div></pre></td></tr></table></figure>
+<p>  <strong>直接将数值转换成仿射变换</strong></p>
+<blockquote>
+<p>CG_EXTERN CGAffineTransform CGAffineTransformMakeTranslation(CGFloat tx,<br>CGFloat ty) CG_AVAILABLE_STARTING(<strong>MAC_10_0, </strong>IPHONE_2_0);</p>
+</blockquote>
+</li>
+<li><p><strong>Return a transform which scales by ‘(sx, sy)’:</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">     t = [ sx 0 0 sy 0 0 ] </div><div class="line">     ```    </div><div class="line">   **仿射变换的放缩效果**</div><div class="line"></div><div class="line">    &gt;CG_EXTERN CGAffineTransform CGAffineTransformMakeScale(CGFloat sx, CGFloat sy)</div><div class="line">  CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);</div><div class="line"></div><div class="line">5.  **Return a transform which rotates by &apos;angle&apos; radians:**</div></pre></td></tr></table></figure>
+<p>  t = [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ] </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">    **仿射变换的旋转效果**</div><div class="line"></div><div class="line">    &gt;CG_EXTERN CGAffineTransform CGAffineTransformMakeRotation(CGFloat angle)</div><div class="line">  CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);</div><div class="line"></div><div class="line">6.  **Return true if &apos;t&apos; is the identity transform, false otherwise.**    </div><div class="line">    **判断是否是单位矩阵**</div><div class="line"></div><div class="line">    &gt;CG_EXTERN bool CGAffineTransformIsIdentity(CGAffineTransform t)</div><div class="line">  CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);</div><div class="line"></div><div class="line">7. **Translate &apos;t&apos; by &apos;(tx, ty)&apos; and return the result:**</div></pre></td></tr></table></figure>
+<p>  t = [ 1 0 0 1 tx ty ] * t </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">   **仿射变换的 矢量运算效果 （动画叠加效果）得到一个矢量**</div><div class="line">    &gt;CG_EXTERN CGAffineTransform CGAffineTransformTranslate(CGAffineTransform t,</div><div class="line">  CGFloat tx, CGFloat ty) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);</div><div class="line"></div><div class="line">8.  **Scale &apos;t&apos; by &apos;(sx, sy)&apos; and return the result:**</div></pre></td></tr></table></figure>
+<p>  t’ = [ sx 0 0 sy 0 0 ] * t </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    **仿射变换的 矢量运算的 得到一个放缩变换的矢量**</div><div class="line"></div><div class="line">    &gt;CG_EXTERN CGAffineTransform CGAffineTransformScale(CGAffineTransform t,</div><div class="line">  CGFloat sx, CGFloat sy) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);</div><div class="line"></div><div class="line">9. **Rotate &apos;t&apos;  by  &apos;angle&apos; radians and return the result:**</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>t =  [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ] * t<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">**矢量运算后的 放缩变换的矢量**</div><div class="line"></div><div class="line">    &gt;CG_EXTERN CGAffineTransform CGAffineTransformRotate(CGAffineTransform t,</div><div class="line">  CGFloat angle) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);</div><div class="line"></div><div class="line">10. **Invert &apos;t&apos; and return the result. If &apos;t&apos; has zero determinant, then &apos;t&apos;</div><div class="line">   is returned unchanged.**    </div><div class="line">    **得到一个逆矩阵**</div><div class="line"></div><div class="line">    &gt;CG_EXTERN CGAffineTransform CGAffineTransformInvert(CGAffineTransform t)</div><div class="line">  CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);</div><div class="line"></div><div class="line">11.  **Concatenate &apos;t2&apos; to &apos;t1&apos; and return the result:**</div></pre></td></tr></table></figure></p>
+<pre><code>t = t1 * t2
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">     **合并矢量**</div><div class="line"></div><div class="line">    &gt;CG_EXTERN CGAffineTransform CGAffineTransformConcat(CGAffineTransform t1,</div><div class="line">  CGAffineTransform t2) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);</div><div class="line"></div><div class="line">12. **Return true if &apos;t1&apos; and &apos;t2&apos; are equal, false otherwise.**    </div><div class="line">    **判断俩仿射变换是否相等**</div><div class="line"></div><div class="line">    &gt;CG_EXTERN bool CGAffineTransformEqualToTransform(CGAffineTransform t1,</div><div class="line">  CGAffineTransform t2) CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);</div><div class="line"></div><div class="line">13.  **Transform &apos;point&apos; by &apos;t&apos; and return the result:**</div></pre></td></tr></table></figure>
+
+p = p * t
+</code></pre><p>   where p = [ x y 1 ].<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    &gt;CG_EXTERN CGPoint CGPointApplyAffineTransform(CGPoint point,</div><div class="line">  CGAffineTransform t) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);</div><div class="line"></div><div class="line">14.  **Transform &apos;size&apos; by &apos;t&apos; and return the result:**</div></pre></td></tr></table></figure></p>
+<pre><code>s = s * t.
+```    
+</code></pre><p>   <strong>where s = [ width height 0 ].</strong></p>
+<pre><code>&gt;CG_EXTERN CGSize CGSizeApplyAffineTransform(CGSize size, CGAffineTransform t)
+</code></pre><p>  CG_AVAILABLE_STARTING(<strong>MAC_10_0, </strong>IPHONE_2_0);</p>
+<ol>
+<li><p><strong>Transform ‘rect’ by ‘t’ and return the result. Since affine transforms do<br>not preserve rectangles in general, this function returns the smallest<br>rectangle which contains the transformed corner points of ‘rect’. If ‘t’<br>consists solely of scales, flips and translations, then the returned<br>rectangle coincides with the rectangle constructed from the four<br>transformed corners.</strong> </p>
+<blockquote>
+<p>CG_EXTERN CGRect CGRectApplyAffineTransform(CGRect rect, CGAffineTransform t)<br>CG_AVAILABLE_STARTING(<strong>MAC_10_4, </strong>IPHONE_2_0);</p>
+</blockquote>
+</li>
+</ol>
 
       
     </div>
@@ -415,17 +486,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/22/UIButton点击事件响应延迟问题解决/" rel="next" title="UIButton 点击事件响应延迟 问题解决">
-                <i class="fa fa-chevron-left"></i> UIButton 点击事件响应延迟 问题解决
+              <a href="/2016/07/27/播放器横竖屏_屏幕旋转问题/" rel="next" title="播放器横竖屏 屏幕旋转问题">
+                <i class="fa fa-chevron-left"></i> 播放器横竖屏 屏幕旋转问题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/02/初窥_cgaffinetransform_ 文档解读/" rel="prev" title="初窥 CGAffineTransform 文档解读">
-                初窥 CGAffineTransform 文档解读 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
