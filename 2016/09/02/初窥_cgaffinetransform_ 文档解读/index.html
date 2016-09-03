@@ -110,7 +110,7 @@ CGFloat tx, ty;
 
 
 博主小手一抖，">
-<meta property="og:updated_time" content="2016-09-03T15:46:11.000Z">
+<meta property="og:updated_time" content="2016-09-03T16:43:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初窥 CGAffineTransform 文档解读">
 <meta name="twitter:description" content="初窥 CGAffineTransform  文档解读
@@ -401,52 +401,114 @@ CGFloat tx, ty;
 </blockquote>
 </li>
 </ul>
-<p>博主小手一抖，<br><!-- 查看详情 --><br><a id="more"></a><br>初始化成这样：’CGAffineTransform *transform = CGAffineTransformIdentity;’这样Xcode是会报错的，然后查验方法却总是找不到错误，自已一查，妹的！竟然是初始化的时候数据类型有错误。）</p>
+<p>博主小手一抖，</p>
+<a id="more"></a>
+<p>初始化成这样：’CGAffineTransform *transform = CGAffineTransformIdentity;’这样Xcode是会报错的，然后查验方法却总是找不到错误，自已一查，妹的！竟然是初始化的时候数据类型有错误。）</p>
 <hr>
 <p><strong>下面步入正题</strong>    </p>
 <hr>
-<ol>
-<li><p><strong>The identity transform: [ 1 0 0 1 0 0 ].</strong><br><strong>返回单位矩阵</strong></p>
+<h1 id="CGAffineTransform"><a href="#CGAffineTransform" class="headerlink" title="CGAffineTransform"></a>CGAffineTransform</h1><ul>
+<li><strong>The identity transform: [ 1 0 0 1 0 0 ].</strong>     </li>
+<li><p><strong>返回单位矩阵</strong></p>
 <pre><code>CG_EXTERN const CGAffineTransform CGAffineTransformIdentity
 CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);    
 </code></pre></li>
-<li><p><strong>Return the transform [ a b c d tx ty ].</strong><br><strong>返回矩阵</strong></p>
+</ul>
+<h1 id="CGAffineTransformMake"><a href="#CGAffineTransformMake" class="headerlink" title="CGAffineTransformMake"></a>CGAffineTransformMake</h1><ul>
+<li><strong>Return the transform [ a b c d tx ty ].</strong>     </li>
+<li><p><strong>返回矩阵</strong></p>
 <pre><code>CG_EXTERN CGAffineTransform CGAffineTransformMake(CGFloat a, CGFloat b,
 CGFloat c, CGFloat d, CGFloat tx, CGFloat ty)
 CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
 </code></pre></li>
-<li><p><strong>Return a transform which translates by ‘(tx, ty)’:</strong></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">t = [ 1 0 0 1 tx ty ]</div></pre></td></tr></table></figure>
-<p>  <strong>直接将数值转换成仿射变换</strong></p>
+</ul>
+<h1 id="CGAffineTransformMakeTranslation"><a href="#CGAffineTransformMakeTranslation" class="headerlink" title="CGAffineTransformMakeTranslation"></a>CGAffineTransformMakeTranslation</h1><ul>
+<li><strong>Return a transform which translates by ‘(tx, ty)’:</strong><br> <strong>t = [ 1 0 0 1 tx ty ].</strong> </li>
+<li><p><strong>直接将数值转换成仿射变换</strong></p>
 <pre><code>CG_EXTERN CGAffineTransform CGAffineTransformMakeTranslation(CGFloat tx,
 CGFloat ty) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
 </code></pre></li>
-<li><p><strong>Return a transform which scales by ‘(sx, sy)’:</strong></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">     t = [ sx 0 0 sy 0 0 ] </div><div class="line">     ```    </div><div class="line">   **仿射变换的放缩效果**</div><div class="line"></div><div class="line">        CG_EXTERN CGAffineTransform CGAffineTransformMakeScale(CGFloat sx, CGFloat sy)</div><div class="line">        CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);    </div><div class="line">  </div><div class="line"></div><div class="line">5.  **Return a transform which rotates by &apos;angle&apos; radians:**</div></pre></td></tr></table></figure>
-<p>  t = [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ] </p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">    **仿射变换的旋转效果**</div><div class="line"></div><div class="line">        CG_EXTERN CGAffineTransform CGAffineTransformMakeRotation(CGFloat angle)</div><div class="line">        CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);    </div><div class="line">  </div><div class="line"></div><div class="line">6.  **Return true if &apos;t&apos; is the identity transform, false otherwise.**    </div><div class="line">    **判断是否是单位矩阵**</div><div class="line"></div><div class="line">        CG_EXTERN bool CGAffineTransformIsIdentity(CGAffineTransform t)</div><div class="line">        CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);</div><div class="line"></div><div class="line">7. **Translate &apos;t&apos; by &apos;(tx, ty)&apos; and return the result:**</div></pre></td></tr></table></figure>
-<p>  t = [ 1 0 0 1 tx ty ] * t </p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">   **仿射变换的 矢量运算效果 （动画叠加效果）得到一个矢量**</div><div class="line">    </div><div class="line">        CG_EXTERN CGAffineTransform CGAffineTransformTranslate(CGAffineTransform t,</div><div class="line">        CGFloat tx, CGFloat ty) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);    </div><div class="line"></div><div class="line">8.  **Scale &apos;t&apos; by &apos;(sx, sy)&apos; and return the result:**</div></pre></td></tr></table></figure>
-<p>  t’ = [ sx 0 0 sy 0 0 ] * t </p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    **仿射变换的 矢量运算的 得到一个放缩变换的矢量**</div><div class="line"></div><div class="line">        CG_EXTERN CGAffineTransform CGAffineTransformScale(CGAffineTransform t,</div><div class="line">        CGFloat sx, CGFloat sy) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);    </div><div class="line">  </div><div class="line"></div><div class="line">9. **Rotate &apos;t&apos;  by  &apos;angle&apos; radians and return the result:**</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>t =  [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ] * t<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">**矢量运算后的 放缩变换的矢量**</div><div class="line"></div><div class="line">        CG_EXTERN CGAffineTransform CGAffineTransformRotate(CGAffineTransform t,</div><div class="line">        CGFloat angle) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);    </div><div class="line"></div><div class="line">10. **Invert &apos;t&apos; and return the result. If &apos;t&apos; has zero determinant, then &apos;t&apos;</div><div class="line">   is returned unchanged.**    </div><div class="line">    **得到一个逆矩阵**</div><div class="line"></div><div class="line">        CG_EXTERN CGAffineTransform CGAffineTransformInvert(CGAffineTransform t)</div><div class="line">        CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);    </div><div class="line"></div><div class="line">11.  **Concatenate &apos;t2&apos; to &apos;t1&apos; and return the result:**</div></pre></td></tr></table></figure></p>
-<pre><code>t = t1 * t2
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">     **合并矢量**</div><div class="line"></div><div class="line">        CG_EXTERN CGAffineTransform CGAffineTransformConcat(CGAffineTransform t1,</div><div class="line">        CGAffineTransform t2) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);    </div><div class="line"></div><div class="line">12. **Return true if &apos;t1&apos; and &apos;t2&apos; are equal, false otherwise.**    </div><div class="line">    **判断俩仿射变换是否相等**</div><div class="line"></div><div class="line">        CG_EXTERN bool CGAffineTransformEqualToTransform(CGAffineTransform t1,</div><div class="line">        CGAffineTransform t2) CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);    </div><div class="line"></div><div class="line">13.  **Transform &apos;point&apos; by &apos;t&apos; and return the result:**</div></pre></td></tr></table></figure>
-
-p = p * t
-</code></pre><p>   where p = [ x y 1 ].<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">        CG_EXTERN CGPoint CGPointApplyAffineTransform(CGPoint point,</div><div class="line">        CGAffineTransform t) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);</div><div class="line"></div><div class="line">14.  **Transform &apos;size&apos; by &apos;t&apos; and return the result:**</div></pre></td></tr></table></figure></p>
-<pre><code>s = s * t.
-```    
-</code></pre><p>   <strong>where s = [ width height 0 ].</strong></p>
+</ul>
+<h1 id="CGAffineTransformMakeScale"><a href="#CGAffineTransformMakeScale" class="headerlink" title="CGAffineTransformMakeScale"></a>CGAffineTransformMakeScale</h1><ul>
+<li><strong>Return a transform which scales by ‘(sx, sy)’:<br>   t = [ sx 0 0 sy 0 0 ].</strong>     </li>
+<li><p><strong>仿射变换的放缩效果</strong></p>
+<pre><code>CG_EXTERN CGAffineTransform CGAffineTransformMakeScale(CGFloat sx, CGFloat sy)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);    
+</code></pre></li>
+</ul>
+<h1 id="CGAffineTransformMakeRotation"><a href="#CGAffineTransformMakeRotation" class="headerlink" title="CGAffineTransformMakeRotation"></a>CGAffineTransformMakeRotation</h1><ul>
+<li><strong>Return a transform which rotates by ‘angle’ radians:<br>   t = [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ].</strong> </li>
+<li><p><strong>仿射变换的旋转效果</strong></p>
+<pre><code>CG_EXTERN CGAffineTransform CGAffineTransformMakeRotation(CGFloat angle)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);    
+</code></pre></li>
+</ul>
+<h1 id="CGAffineTransformIsIdentity"><a href="#CGAffineTransformIsIdentity" class="headerlink" title="CGAffineTransformIsIdentity"></a>CGAffineTransformIsIdentity</h1><ul>
+<li><strong>Return true if ‘t’ is the identity transform, false otherwise.</strong>    </li>
+<li><p><strong>判断是否是单位矩阵</strong></p>
+<pre><code>CG_EXTERN bool CGAffineTransformIsIdentity(CGAffineTransform t)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+</code></pre></li>
+</ul>
+<h1 id="CGAffineTransformTranslate"><a href="#CGAffineTransformTranslate" class="headerlink" title="CGAffineTransformTranslate"></a>CGAffineTransformTranslate</h1><ul>
+<li><strong>Translate ‘t’ by ‘(tx, ty)’ and return the result:<br>   t = [ 1 0 0 1 tx ty ] * t .</strong></li>
+<li><p><strong>仿射变换的 矢量运算效果 （动画叠加效果）得到一个矢量</strong></p>
+<pre><code>CG_EXTERN CGAffineTransform CGAffineTransformTranslate(CGAffineTransform t,
+CGFloat tx, CGFloat ty) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);    
+</code></pre></li>
+</ul>
+<h1 id="CGAffineTransformScale"><a href="#CGAffineTransformScale" class="headerlink" title="CGAffineTransformScale"></a>CGAffineTransformScale</h1><ul>
+<li><strong>Scale ‘t’ by ‘(sx, sy)’ and return the result:<br>   t’ = [ sx 0 0 sy 0 0 ] * t .</strong></li>
+<li><p><strong>仿射变换的 矢量运算的 得到一个放缩变换的矢量</strong></p>
+<pre><code>CG_EXTERN CGAffineTransform CGAffineTransformScale(CGAffineTransform t,
+CGFloat sx, CGFloat sy) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);    
+</code></pre></li>
+</ul>
+<h1 id="CGAffineTransformRotate"><a href="#CGAffineTransformRotate" class="headerlink" title="CGAffineTransformRotate"></a>CGAffineTransformRotate</h1><ul>
+<li><strong>Rotate ‘t’  by  ‘angle’ radians and return the result:<br>t =  [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ] * t .</strong></li>
+<li><p><strong>矢量运算后的 放缩变换的矢量</strong></p>
+<pre><code>CG_EXTERN CGAffineTransform CGAffineTransformRotate(CGAffineTransform t,
+CGFloat angle) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);    
+</code></pre></li>
+</ul>
+<h1 id="CGAffineTransformInvert"><a href="#CGAffineTransformInvert" class="headerlink" title="CGAffineTransformInvert"></a>CGAffineTransformInvert</h1><ul>
+<li><strong>Invert ‘t’ and return the result. If ‘t’ has zero determinant, then ‘t’<br> is returned unchanged.</strong>    </li>
+<li><p><strong>得到一个逆矩阵</strong></p>
+<pre><code>CG_EXTERN CGAffineTransform CGAffineTransformInvert(CGAffineTransform t)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);    
+</code></pre></li>
+</ul>
+<h1 id="CGAffineTransformConcat"><a href="#CGAffineTransformConcat" class="headerlink" title="CGAffineTransformConcat"></a>CGAffineTransformConcat</h1><ul>
+<li><strong>Concatenate ‘t2’ to ‘t1’ and return the result:<br>   t = t1 * t2.</strong></li>
+<li><p><strong>合并矢量</strong></p>
+<pre><code>CG_EXTERN CGAffineTransform CGAffineTransformConcat(CGAffineTransform t1,
+CGAffineTransform t2) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);    
+</code></pre></li>
+</ul>
+<h1 id="CGAffineTransformEqualToTransform"><a href="#CGAffineTransformEqualToTransform" class="headerlink" title="CGAffineTransformEqualToTransform"></a>CGAffineTransformEqualToTransform</h1><ul>
+<li><p><strong>Return true if ‘t1’ and ‘t2’ are equal, false otherwise.</strong><br><strong>判断俩仿射变换是否相等</strong></p>
+<pre><code>CG_EXTERN bool CGAffineTransformEqualToTransform(CGAffineTransform t1,
+CGAffineTransform t2) CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);    
+</code></pre></li>
+</ul>
+<h1 id="CGPointApplyAffineTransform"><a href="#CGPointApplyAffineTransform" class="headerlink" title="CGPointApplyAffineTransform"></a>CGPointApplyAffineTransform</h1><ul>
+<li><p><strong>Transform ‘point’ by ‘t’ and return the result:<br>   p = p * t.<br> where: p = [ x y 1 ].</strong></p>
+<pre><code>CG_EXTERN CGPoint CGPointApplyAffineTransform(CGPoint point,
+CGAffineTransform t) CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+</code></pre></li>
+</ul>
+<h1 id="CGSizeApplyAffineTransform"><a href="#CGSizeApplyAffineTransform" class="headerlink" title="CGSizeApplyAffineTransform"></a>CGSizeApplyAffineTransform</h1><ul>
+<li><p><strong>Transform ‘size’ by ‘t’ and return the result:<br>s = s * t.<br>where s = [ width height 0 ].</strong></p>
 <pre><code>CG_EXTERN CGSize CGSizeApplyAffineTransform(CGSize size, CGAffineTransform t)
 CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
-</code></pre><ol>
-<li><p><strong>Transform ‘rect’ by ‘t’ and return the result. Since affine transforms do<br>not preserve rectangles in general, this function returns the smallest<br>rectangle which contains the transformed corner points of ‘rect’. If ‘t’<br>consists solely of scales, flips and translations, then the returned<br>rectangle coincides with the rectangle constructed from the four<br>transformed corners.</strong> </p>
-<p>   CG_EXTERN CGRect CGRectApplyAffineTransform(CGRect rect, CGAffineTransform t)<br>   CG_AVAILABLE_STARTING(<strong>MAC_10_4, </strong>IPHONE_2_0);</p>
-</li>
-</ol>
+</code></pre></li>
+</ul>
+<h1 id="CGRectApplyAffineTransform"><a href="#CGRectApplyAffineTransform" class="headerlink" title="CGRectApplyAffineTransform"></a>CGRectApplyAffineTransform</h1><ul>
+<li><p><strong>Transform ‘rect’ by ‘t’ and return the result. Since affine transforms do<br> not preserve rectangles in general, this function returns the smallest<br> rectangle which contains the transformed corner points of ‘rect’. If ‘t’<br> consists solely of scales, flips and translations, then the returned<br> rectangle coincides with the rectangle constructed from the four<br> transformed corners.</strong> </p>
+<pre><code>CG_EXTERN CGRect CGRectApplyAffineTransform(CGRect rect, CGAffineTransform t)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+</code></pre></li>
+</ul>
 
       
     </div>
@@ -482,13 +544,17 @@ CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/20/初窥_catransform3d_ 文档解读/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2016/07/27/播放器横竖屏_屏幕旋转问题/" rel="next" title="播放器横竖屏 屏幕旋转问题">
+                <i class="fa fa-chevron-left"></i> 播放器横竖屏 屏幕旋转问题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/03/初窥_catransform3d_ 文档解读/" rel="prev" title="初窥 CATransform3D  文档解读">
+                初窥 CATransform3D  文档解读 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -613,7 +679,7 @@ CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
               
             
             
-              <p class="post-toc-empty">Dieser Artikel hat kein Inhaltsverzeichnis</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CGAffineTransform"><span class="nav-number">1.</span> <span class="nav-text">CGAffineTransform</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGAffineTransformMake"><span class="nav-number">2.</span> <span class="nav-text">CGAffineTransformMake</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGAffineTransformMakeTranslation"><span class="nav-number">3.</span> <span class="nav-text">CGAffineTransformMakeTranslation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGAffineTransformMakeScale"><span class="nav-number">4.</span> <span class="nav-text">CGAffineTransformMakeScale</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGAffineTransformMakeRotation"><span class="nav-number">5.</span> <span class="nav-text">CGAffineTransformMakeRotation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGAffineTransformIsIdentity"><span class="nav-number">6.</span> <span class="nav-text">CGAffineTransformIsIdentity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGAffineTransformTranslate"><span class="nav-number">7.</span> <span class="nav-text">CGAffineTransformTranslate</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGAffineTransformScale"><span class="nav-number">8.</span> <span class="nav-text">CGAffineTransformScale</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGAffineTransformRotate"><span class="nav-number">9.</span> <span class="nav-text">CGAffineTransformRotate</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGAffineTransformInvert"><span class="nav-number">10.</span> <span class="nav-text">CGAffineTransformInvert</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGAffineTransformConcat"><span class="nav-number">11.</span> <span class="nav-text">CGAffineTransformConcat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGAffineTransformEqualToTransform"><span class="nav-number">12.</span> <span class="nav-text">CGAffineTransformEqualToTransform</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGPointApplyAffineTransform"><span class="nav-number">13.</span> <span class="nav-text">CGPointApplyAffineTransform</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGSizeApplyAffineTransform"><span class="nav-number">14.</span> <span class="nav-text">CGSizeApplyAffineTransform</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGRectApplyAffineTransform"><span class="nav-number">15.</span> <span class="nav-text">CGRectApplyAffineTransform</span></a></li></ol></div>
             
           </div>
         </section>
