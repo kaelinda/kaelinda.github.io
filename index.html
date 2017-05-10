@@ -5,11 +5,14 @@
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next muse use-motion" lang="">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
 
 
 
@@ -27,9 +30,12 @@
 
 
 
+
+
+
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +69,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -77,7 +83,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
 
 
@@ -96,26 +102,37 @@
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: {"position":"right","display":"post"},
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: '0',
       author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://doomedkael.com/"/>
 
-  <title> Kaelinda </title>
+
+
+
+
+  <title>Kaelinda</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -131,36 +148,44 @@
 
 
 
+
+
+
+
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-right 
+  <div class="container sidebar-position-left 
    page-home 
  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Kaelinda</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kaelinda</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">凤凰涅槃，浴火重生。</p>
+      
   </div>
-  <p class="site-subtitle">凤凰涅槃，浴火重生。</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -173,29 +198,9 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-首页"></i> <br />
             
-            Accueil
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Categories
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            A propos
+            Startseite
           </a>
         </li>
       
@@ -203,9 +208,9 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-归档"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -213,19 +218,9 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-标签"></i> <br />
             
             Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            公益404
           </a>
         </li>
       
@@ -236,6 +231,8 @@
 
   
 </nav>
+
+
 
  </div>
     </header>
@@ -250,13 +247,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://doomedkael.com/2017/05/10/command-of-hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kaelinda">
+    </span>
 
     
       <header class="post-header">
@@ -264,27 +271,27 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/05/10/command-of-hexo/" itemprop="url">
-                  Hexo 命令识记
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/05/10/command-of-hexo/" itemprop="url">Hexo 命令识记</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2017-05-10T16:00:43+08:00" content="2017-05-10">
-              2017-05-10
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-10T16:00:43+08:00">
+                2017-05-10
+              </time>
+            
+
+            
+
+            
           </span>
 
           
@@ -294,15 +301,17 @@
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -313,12 +322,18 @@
         
           <h1 id="Hexo-命令识记"><a href="#Hexo-命令识记" class="headerlink" title="Hexo 命令识记"></a>Hexo 命令识记</h1><h2 id="先来看下终端命令下的help"><a href="#先来看下终端命令下的help" class="headerlink" title="先来看下终端命令下的help"></a>先来看下终端命令下的help</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Usage: hexo &lt;command&gt;</div><div class="line">Commands:</div><div class="line">  clean     Removed generated files and cache.</div><div class="line">  config    Get or set configurations.</div><div class="line">  deploy    Deploy your website.</div><div class="line">  generate  Generate static files.</div><div class="line">  help      Get help on a command.</div><div class="line">  init      Create a new Hexo folder.</div><div class="line">  list      List the information of the site</div><div class="line">  migrate   Migrate your site from other system to Hexo.</div><div class="line">  new       Create a new post.</div><div class="line">  publish   Moves a draft post from _drafts to _posts folder.</div><div class="line">  render    Render files with renderer plugins.</div><div class="line">  server    Start the server.</div><div class="line">  version   Display version information.</div><div class="line"></div><div class="line">Global Options:</div><div class="line">  --config  Specify config file instead of using _config.yml</div><div class="line">  --cwd     Specify the CWD</div><div class="line">  --debug   Display all verbose messages in the terminal</div><div class="line">  --draft   Display draft posts</div><div class="line">  --safe    Disable all plugins and scripts</div><div class="line">  --silent  Hide output on console</div></pre></td></tr></table></figure>
 <h2 id="具体使用和解释"><a href="#具体使用和解释" class="headerlink" title="具体使用和解释"></a>具体使用和解释</h2>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017/05/10/command-of-hexo/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -336,6 +351,8 @@
       
 
       
+
+      
       
         <div class="post-eof"></div>
       
@@ -347,13 +364,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://doomedkael.com/2017/05/10/C语言基础面试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kaelinda">
+    </span>
 
     
       <header class="post-header">
@@ -361,38 +388,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/05/10/C语言基础面试题/" itemprop="url">
-                  a++/++a 面试题
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/05/10/C语言基础面试题/" itemprop="url">a++/++a 面试题</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2017-05-10T13:09:00+08:00" content="2017-05-10">
-              2017-05-10
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-10T13:09:00+08:00">
+                2017-05-10
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/" itemprop="url" rel="index">
                     <span itemprop="name">编程</span>
                   </a>
@@ -400,11 +431,10 @@
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/" itemprop="url" rel="index">
                     <span itemprop="name">OC</span>
                   </a>
@@ -412,11 +442,10 @@
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/Swift/" itemprop="url" rel="index">
                     <span itemprop="name">Swift</span>
                   </a>
@@ -424,11 +453,10 @@
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/Swift/PUSH/" itemprop="url" rel="index">
                     <span itemprop="name">PUSH</span>
                   </a>
@@ -436,11 +464,10 @@
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/Swift/PUSH/面试/" itemprop="url" rel="index">
                     <span itemprop="name">面试</span>
                   </a>
@@ -448,7 +475,6 @@
 
                 
                 
-
               
             </span>
           
@@ -458,15 +484,17 @@
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -483,12 +511,18 @@
 </li>
 </ul>
 <p>请问 a/b/tmp 值分别为多少？</p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017/05/10/C语言基础面试题/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -506,6 +540,8 @@
       
 
       
+
+      
       
         <div class="post-eof"></div>
       
@@ -517,13 +553,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://doomedkael.com/2016/09/03/初窥_catransform3d_ 文档解读/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kaelinda">
+    </span>
 
     
       <header class="post-header">
@@ -531,38 +577,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/09/03/初窥_catransform3d_ 文档解读/" itemprop="url">
-                  初窥 CATransform3D  文档解读
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/09/03/初窥_catransform3d_ 文档解读/" itemprop="url">初窥 CATransform3D  文档解读</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2016-09-03T00:00:00+08:00" content="2016-09-03">
-              2016-09-03
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-03T00:00:00+08:00">
+                2016-09-03
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/" itemprop="url" rel="index">
                     <span itemprop="name">编程</span>
                   </a>
@@ -570,11 +620,10 @@
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/" itemprop="url" rel="index">
                     <span itemprop="name">OC</span>
                   </a>
@@ -582,11 +631,10 @@
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/Swift/" itemprop="url" rel="index">
                     <span itemprop="name">Swift</span>
                   </a>
@@ -594,11 +642,10 @@
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/Swift/PUSH/" itemprop="url" rel="index">
                     <span itemprop="name">PUSH</span>
                   </a>
@@ -606,7 +653,6 @@
 
                 
                 
-
               
             </span>
           
@@ -616,15 +662,17 @@
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -645,12 +693,18 @@ CGFloat m41, m42, m43, m44;
 <p>{<br>CGFloat m11（x缩放）, m12（y切变）, m13（）, m14（）;<br>CGFloat m21（x切变）, m22（y缩放）, m23（）, m24（）;<br>CGFloat m31（）, m32（）, m33（）, m34（透视效果，要操作的这个对象要有旋转的角度，否则没有效果。当然,z方向上得有变化才会有透视效果）;<br>CGFloat m41（x平移）, m42（y平移）, m43（z平移）, m44（）;<br>};    </p>
 <hr>
 </blockquote>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016/09/03/初窥_catransform3d_ 文档解读/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -668,6 +722,8 @@ CGFloat m41, m42, m43, m44;
       
 
       
+
+      
       
         <div class="post-eof"></div>
       
@@ -679,13 +735,23 @@ CGFloat m41, m42, m43, m44;
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://doomedkael.com/2016/09/02/初窥_cgaffinetransform_ 文档解读/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kaelinda">
+    </span>
 
     
       <header class="post-header">
@@ -693,38 +759,42 @@ CGFloat m41, m42, m43, m44;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/09/02/初窥_cgaffinetransform_ 文档解读/" itemprop="url">
-                  初窥 CGAffineTransform 文档解读
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/09/02/初窥_cgaffinetransform_ 文档解读/" itemprop="url">初窥 CGAffineTransform 文档解读</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2016-09-02T00:00:00+08:00" content="2016-09-02">
-              2016-09-02
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-02T00:00:00+08:00">
+                2016-09-02
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/" itemprop="url" rel="index">
                     <span itemprop="name">编程</span>
                   </a>
@@ -732,11 +802,10 @@ CGFloat m41, m42, m43, m44;
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/" itemprop="url" rel="index">
                     <span itemprop="name">OC</span>
                   </a>
@@ -744,11 +813,10 @@ CGFloat m41, m42, m43, m44;
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/Swift/" itemprop="url" rel="index">
                     <span itemprop="name">Swift</span>
                   </a>
@@ -756,11 +824,10 @@ CGFloat m41, m42, m43, m44;
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/Swift/PUSH/" itemprop="url" rel="index">
                     <span itemprop="name">PUSH</span>
                   </a>
@@ -768,7 +835,6 @@ CGFloat m41, m42, m43, m44;
 
                 
                 
-
               
             </span>
           
@@ -778,15 +844,17 @@ CGFloat m41, m42, m43, m44;
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -806,12 +874,18 @@ CGFloat tx, ty;
 </li>
 </ul>
 <p>博主小手一抖，</p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016/09/02/初窥_cgaffinetransform_ 文档解读/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -829,6 +903,8 @@ CGFloat tx, ty;
       
 
       
+
+      
       
         <div class="post-eof"></div>
       
@@ -840,13 +916,23 @@ CGFloat tx, ty;
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://doomedkael.com/2016/07/27/播放器横竖屏_屏幕旋转问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kaelinda">
+    </span>
 
     
       <header class="post-header">
@@ -854,38 +940,42 @@ CGFloat tx, ty;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/07/27/播放器横竖屏_屏幕旋转问题/" itemprop="url">
-                  播放器横竖屏 屏幕旋转问题
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/07/27/播放器横竖屏_屏幕旋转问题/" itemprop="url">播放器横竖屏 屏幕旋转问题</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2016-07-27T19:55:04+08:00" content="2016-07-27">
-              2016-07-27
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-27T19:55:04+08:00">
+                2016-07-27
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/" itemprop="url" rel="index">
                     <span itemprop="name">编程</span>
                   </a>
@@ -893,11 +983,10 @@ CGFloat tx, ty;
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/" itemprop="url" rel="index">
                     <span itemprop="name">OC</span>
                   </a>
@@ -905,11 +994,10 @@ CGFloat tx, ty;
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/Swift/" itemprop="url" rel="index">
                     <span itemprop="name">Swift</span>
                   </a>
@@ -917,11 +1005,10 @@ CGFloat tx, ty;
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/Swift/PUSH/" itemprop="url" rel="index">
                     <span itemprop="name">PUSH</span>
                   </a>
@@ -929,7 +1016,6 @@ CGFloat tx, ty;
 
                 
                 
-
               
             </span>
           
@@ -939,15 +1025,17 @@ CGFloat tx, ty;
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -960,12 +1048,18 @@ CGFloat tx, ty;
 <ul>
 <li><p>#问题：<br>现在又界面节目List界面A，和播放器界面B.<br>A界面只支持竖屏，B界面只支持横屏。<br>由A界面跳转到B界面，返回到A界面的时候，屏幕会闪一下（iOS 9比较明显，iOS8看不出来，模拟器iOS9会更明显）。同时，A界面POP到上一个界面的时候，也会闪一下，并且，侧滑返回手势失效！！</p>
 <!-- 查看详情 -->
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016/07/27/播放器横竖屏_屏幕旋转问题/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -983,6 +1077,8 @@ CGFloat tx, ty;
       
 
       
+
+      
       
         <div class="post-eof"></div>
       
@@ -994,13 +1090,23 @@ CGFloat tx, ty;
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://doomedkael.com/2016/07/22/UIButton点击事件响应延迟问题解决/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kaelinda">
+    </span>
 
     
       <header class="post-header">
@@ -1008,38 +1114,42 @@ CGFloat tx, ty;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/07/22/UIButton点击事件响应延迟问题解决/" itemprop="url">
-                  UIButton 点击事件响应延迟 问题解决
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/07/22/UIButton点击事件响应延迟问题解决/" itemprop="url">UIButton 点击事件响应延迟 问题解决</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2016-07-22T19:55:04+08:00" content="2016-07-22">
-              2016-07-22
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-22T19:55:04+08:00">
+                2016-07-22
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/" itemprop="url" rel="index">
                     <span itemprop="name">编程</span>
                   </a>
@@ -1047,11 +1157,10 @@ CGFloat tx, ty;
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/" itemprop="url" rel="index">
                     <span itemprop="name">OC</span>
                   </a>
@@ -1059,11 +1168,10 @@ CGFloat tx, ty;
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/Swift/" itemprop="url" rel="index">
                     <span itemprop="name">Swift</span>
                   </a>
@@ -1071,11 +1179,10 @@ CGFloat tx, ty;
 
                 
                 
-                  , 
+                  . 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/programming/OC/Swift/CSS/" itemprop="url" rel="index">
                     <span itemprop="name">CSS</span>
                   </a>
@@ -1083,7 +1190,6 @@ CGFloat tx, ty;
 
                 
                 
-
               
             </span>
           
@@ -1093,15 +1199,17 @@ CGFloat tx, ty;
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -1114,11 +1222,13 @@ CGFloat tx, ty;
 <ul>
 <li>问题表现<blockquote>
 <p>我在UITableView的Header上添加了一个视图（FiltersView），FiltersView上面添加了不定数量的 UIButton。点击UIButton 字体颜色和 layer 的 border 颜色发生改变。但是，当我快速点击快速抬起的时候，发现按钮颜色和border的颜色并没有发生改变；只有在手指停留在屏幕上的时间稍长一点的时候才会有响应事件触发。</p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016/07/22/UIButton点击事件响应延迟问题解决/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1131,7 +1241,13 @@ CGFloat tx, ty;
       
     </div>
 
+    <div>
+      
+    </div>
+
     <footer class="post-footer">
+      
+
       
 
       
@@ -1148,13 +1264,23 @@ CGFloat tx, ty;
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://doomedkael.com/2016/07/22/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kaelinda">
+    </span>
 
     
       <header class="post-header">
@@ -1162,27 +1288,27 @@ CGFloat tx, ty;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/07/22/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016/07/22/hello-world/" itemprop="url">Hello World</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2016-07-22T19:48:52+08:00" content="2016-07-22">
-              2016-07-22
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-22T19:48:52+08:00">
+                2016-07-22
+              </time>
+            
+
+            
+
+            
           </span>
 
           
@@ -1192,15 +1318,17 @@ CGFloat tx, ty;
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -1210,12 +1338,18 @@ CGFloat tx, ty;
       
         
           <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.<br>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016/07/22/hello-world/#more" rel="contents">
-              Lire la suite &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1228,6 +1362,8 @@ CGFloat tx, ty;
     </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1271,37 +1407,46 @@ CGFloat tx, ty;
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1357987908,3816268146&fm=116&gp=0.jpg"
+               src="/images/avatar.gif"
                alt="Kael" />
           <p class="site-author-name" itemprop="name">Kael</p>
-          <p class="site-description motion-element" itemprop="description">个人博客尝试下新东西??</p>
+           
+              <p class="site-description motion-element" itemprop="description">个人博客尝试下新东西??</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">7</span>
-              <span class="site-state-item-name">articles</span>
-            </a>
-          </div>
 
           
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">categories</span>
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/languages/index.html">
                 <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Kategorien</span>
               </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">Tags</span>
+              
             </div>
           
 
@@ -1311,17 +1456,6 @@ CGFloat tx, ty;
 
         <div class="links-of-author motion-element">
           
-            
-              <span class="links-of-author-item">
-                <a href="Link" target="_blank" title="LinkLabel">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  LinkLabel
-                </a>
-              </span>
-            
-          
         </div>
 
         
@@ -1330,7 +1464,12 @@ CGFloat tx, ty;
         
         
 
+        
+
+
       </section>
+
+      
 
       
 
@@ -1354,16 +1493,18 @@ CGFloat tx, ty;
   <span class="author" itemprop="copyrightHolder">Kael</span>
 </div>
 
+
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Thème -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
+
 
         
 
@@ -1371,9 +1512,13 @@ CGFloat tx, ty;
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -1396,56 +1541,96 @@ CGFloat tx, ty;
 
 
 
-  
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
-  
-  
-
-  
-
-  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
-
-
-
-  
-
-
-
-  
 
 
 
 
   
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
   
 
   
