@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Runtime," />
 
 
 
@@ -90,16 +90,22 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="description" content="Objective-C RuntimeOC–动态性语言
+Objective-C 扩展了 C 语言，并加入了面向对象特性和 Smalltalk 式的消息传递机制。而这个扩展的核心是一个用 C 和 编译语言 写的 Runtime 库。它是 Objective-C 面向对象和动态机制的基石。那么“动态”体现在哪里呢？
+比如 C ，调用一个方法其实就是跳到内存中的某一点并开始执行一段代码。没有任何动态的特">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://doomedkael.com/2016/07/22/hello-world/index.html">
+<meta property="og:title" content="Objective-C Runtime">
+<meta property="og:url" content="http://doomedkael.com/2017/05/16/Objective-C-Runtime/index.html">
 <meta property="og:site_name" content="Kaelinda">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta property="og:updated_time" content="2016-07-23T02:33:49.000Z">
+<meta property="og:description" content="Objective-C RuntimeOC–动态性语言
+Objective-C 扩展了 C 语言，并加入了面向对象特性和 Smalltalk 式的消息传递机制。而这个扩展的核心是一个用 C 和 编译语言 写的 Runtime 库。它是 Objective-C 面向对象和动态机制的基石。那么“动态”体现在哪里呢？
+比如 C ，调用一个方法其实就是跳到内存中的某一点并开始执行一段代码。没有任何动态的特">
+<meta property="og:updated_time" content="2017-05-16T07:11:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="Objective-C Runtime">
+<meta name="twitter:description" content="Objective-C RuntimeOC–动态性语言
+Objective-C 扩展了 C 语言，并加入了面向对象特性和 Smalltalk 式的消息传递机制。而这个扩展的核心是一个用 C 和 编译语言 写的 Runtime 库。它是 Objective-C 面向对象和动态机制的基石。那么“动态”体现在哪里呢？
+比如 C ，调用一个方法其实就是跳到内存中的某一点并开始执行一段代码。没有任何动态的特">
 
 
 
@@ -127,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://doomedkael.com/2016/07/22/hello-world/"/>
+  <link rel="canonical" href="http://doomedkael.com/2017/05/16/Objective-C-Runtime/"/>
 
 
 
 
 
-  <title>Hello World | Kaelinda</title>
+  <title>Objective-C Runtime | Kaelinda</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -292,7 +298,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://doomedkael.com/2016/07/22/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://doomedkael.com/2017/05/16/Objective-C-Runtime/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kael">
@@ -309,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">Objective-C Runtime</h1>
         
 
         <div class="post-meta">
@@ -321,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-22T19:48:52+08:00">
-                2016-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T11:14:31+08:00">
+                2017-05-16
               </time>
             
 
@@ -331,6 +337,39 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Objective-C/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -356,15 +395,12 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h1 id="Objective-C-Runtime"><a href="#Objective-C-Runtime" class="headerlink" title="Objective-C Runtime"></a>Objective-C Runtime</h1><h2 id="OC–动态性语言"><a href="#OC–动态性语言" class="headerlink" title="OC–动态性语言"></a>OC–动态性语言</h2><blockquote>
+<p>Objective-C 扩展了 C 语言，并加入了面向对象特性和 Smalltalk 式的消息传递机制。而这个扩展的核心是一个用 C 和 编译语言 写的 Runtime 库。它是 Objective-C 面向对象和动态机制的基石。<br>那么“动态”体现在哪里呢？</p>
+<p>比如 C ，调用一个方法其实就是跳到内存中的某一点并开始执行一段代码。没有任何动态的特性，因为这在编译时就决定好了。</p>
+<p>而在 Objective-C 中，[object foo] 语法并不会立即执行 foo 这个方法的代码。它是在运行时给 object 发送一条叫 foo 的消息。这个消息，也许会由 object 来处理，也许会被转发给另一个对象，或者不予理睬假装没收到这个消息。多条不同的消息也可以对应同一个方法实现。这些都是在程序运行的时候决定的。</p>
+</blockquote>
+<h2 id="objc-object-objc-class-以及-Ojbc-method"><a href="#objc-object-objc-class-以及-Ojbc-method" class="headerlink" title="objc_object, objc_class 以及 Ojbc_method"></a>objc_object, objc_class 以及 Ojbc_method</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">struct objc_object &#123;  </div><div class="line">    Class isa  OBJC_ISA_AVAILABILITY;</div><div class="line">&#125;;</div><div class="line">struct objc_class &#123;  </div><div class="line">    Class isa  OBJC_ISA_AVAILABILITY;</div><div class="line">#if !__OBJC2__</div><div class="line">    Class super_class;</div><div class="line">    const char *name;</div><div class="line">    long version;</div><div class="line">    long info;</div><div class="line">    long instance_size;</div><div class="line">    struct objc_ivar_list *ivars;</div><div class="line">    **struct objc_method_list **methodLists**;</div><div class="line">    **struct objc_cache *cache**;</div><div class="line">    struct objc_protocol_list *protocols;</div><div class="line">#endif</div><div class="line">&#125;;</div><div class="line">struct objc_method_list &#123;  </div><div class="line">    struct objc_method_list *obsolete;</div><div class="line">    int method_count;</div><div class="line">#ifdef __LP64__</div><div class="line">    int space;</div><div class="line">#endif</div><div class="line">    /* variable length structure */</div><div class="line">    struct objc_method method_list[1];</div><div class="line">&#125;;</div><div class="line">struct objc_method &#123;  </div><div class="line">    SEL method_name;</div><div class="line">    char *method_types;    /* a string representing argument/return types */</div><div class="line">    IMP method_imp;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -392,6 +428,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Runtime/" rel="tag"># Runtime</a>
+          
+        </div>
+      
 
       
         
@@ -401,15 +443,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/05/15/iOS面试题大汇总/" rel="next" title="iOS面试题大汇总">
+                <i class="fa fa-chevron-left"></i> iOS面试题大汇总
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/22/UIButton点击事件响应延迟问题解决/" rel="prev" title="UIButton 点击事件响应延迟 问题解决">
-                UIButton 点击事件响应延迟 问题解决 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -538,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Objective-C-Runtime"><span class="nav-number">1.</span> <span class="nav-text">Objective-C Runtime</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OC–动态性语言"><span class="nav-number">1.1.</span> <span class="nav-text">OC–动态性语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#objc-object-objc-class-以及-Ojbc-method"><span class="nav-number">1.2.</span> <span class="nav-text">objc_object, objc_class 以及 Ojbc_method</span></a></li></ol></li></ol></div>
             
 
           </div>
