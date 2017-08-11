@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaelblog.website/"/>
-  <updated>2017-08-11T07:38:25.000Z</updated>
+  <updated>2017-08-11T07:41:39.000Z</updated>
   <id>http://kaelblog.website/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://kaelblog.website/2017/08/11/reactnative-%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90-Redux/"/>
     <id>http://kaelblog.website/2017/08/11/reactnative-快速集成-Redux/</id>
     <published>2017-08-11T06:36:53.000Z</published>
-    <updated>2017-08-11T07:38:25.000Z</updated>
+    <updated>2017-08-11T07:41:39.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="React-Native-集成-Redux"><a href="#React-Native-集成-Redux" class="headerlink" title="React Native 集成 Redux"></a>React Native 集成 Redux</h1><h2 id="课程介绍"><a href="#课程介绍" class="headerlink" title="课程介绍"></a>课程介绍</h2><ul>
 <li>Flux/reFlux/Redux</li>
@@ -73,15 +73,17 @@
 <li><p>绑定数据：</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//用来获取更新后的数据   监听数据更新</div><div class="line">const mapStateToProps = (state,ownProps) =&gt; &#123;</div><div class="line">    console.log(state);</div><div class="line">    return &#123;</div><div class="line">        testShow: state.find.testShow,</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//用来派发消息</div><div class="line">const mapDispatchToProps = (dispatch,ownProps) =&gt; (&#123;</div><div class="line">  changeTabBar: (...args) =&gt; dispatch(showTabBar(...args)),</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//用来进行数据流  和  控件的绑定关系</div><div class="line">export default connect(mapStateToProps,mapDispatchToProps)(AppFind)</div></pre></td></tr></table></figure>
 </li>
-<li><p>派发消息：</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">this.props.changeTabBar(!this.props.testShow)</div></pre></td></tr></table></figure>
-</li>
-<li><p>消息处理：step4 中绑定的reducer文件中:</p>
-</li>
 </ul>
 </li>
 </ul>
-<pre><code>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">	//1.导入头文件</div><div class="line">	import &#123; combineReducers &#125; from &apos;redux&apos;;</div><div class="line">	//2.创建初始化状态</div><div class="line">	const initialState = &#123; testShow: true&#125;;</div><div class="line">	//3.逻辑处理</div><div class="line">	const find = (state = initialState, action) =\&gt; &#123;</div><div class="line">				 switch (action.type) &#123;</div><div class="line">				        case &apos;findshowTabBar&apos;:&#123;</div><div class="line">					          return Object.assign(&#123;&#125;, state, &#123;</div><div class="line">					                testShow: action.testShow</div><div class="line">					            &#125;)</div><div class="line">				        &#125;</div><div class="line">				        default:</div><div class="line">				         return state;</div><div class="line">	</div><div class="line">				    &#125;</div><div class="line">			&#125;</div><div class="line">			//4.组合所有的逻辑块</div><div class="line">			const AppReducer = combineReducers(&#123;</div><div class="line">				find,</div><div class="line">&apos; 		    //如果业务繁多这里可能还有别的模块</div><div class="line">&#125;);</div><div class="line">//5.导出</div><div class="line">export default AppReducer;</div></pre></td></tr></table></figure>
+<pre><code>- 派发消息：
+
+     <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">this.props.changeTabBar(!this.props.testShow)</div></pre></td></tr></table></figure>
+
+
+- 消息处理：step4 中绑定的reducer文件中:
+
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">	//1.导入头文件</div><div class="line">	import &#123; combineReducers &#125; from &apos;redux&apos;;</div><div class="line">	//2.创建初始化状态</div><div class="line">	const initialState = &#123; testShow: true&#125;;</div><div class="line">	//3.逻辑处理</div><div class="line">	const find = (state = initialState, action) =&gt; &#123;</div><div class="line">       switch (action.type) &#123;</div><div class="line">           case &apos;findshowTabBar&apos;:&#123;</div><div class="line">			    return Object.assign(&#123;&#125;, state, &#123;</div><div class="line">				   testShow: action.testShow</div><div class="line">				&#125;)</div><div class="line">			&#125;</div><div class="line">		   default:</div><div class="line">			return state;</div><div class="line">	      &#125;</div><div class="line">       &#125;</div><div class="line">//4.组合所有的逻辑块</div><div class="line">const AppReducer = combineReducers(&#123;</div><div class="line">   find,</div><div class="line">&apos; 	//如果业务繁多这里可能还有别的模块</div><div class="line">&#125;);</div><div class="line">//5.导出</div><div class="line">export default AppReducer;</div></pre></td></tr></table></figure>
 
 - 获取更改状态值：
 
@@ -1422,9 +1424,9 @@
       <category term="编程" scheme="http://kaelblog.website/categories/programming/"/>
     
     
-      <category term="Runtime" scheme="http://kaelblog.website/tags/Runtime/"/>
-    
       <category term="OC" scheme="http://kaelblog.website/tags/OC/"/>
+    
+      <category term="Runtime" scheme="http://kaelblog.website/tags/Runtime/"/>
     
   </entry>
   
