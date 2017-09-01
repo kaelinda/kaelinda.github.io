@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaelblog.website/"/>
-  <updated>2017-09-01T02:17:52.000Z</updated>
+  <updated>2017-09-01T02:18:37.000Z</updated>
   <id>http://kaelblog.website/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://kaelblog.website/2017/09/01/rect-navigation-Android-headerTitle-%E5%B1%85%E4%B8%AD%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88/"/>
     <id>http://kaelblog.website/2017/09/01/rect-navigation-Android-headerTitle-居中适配方案/</id>
     <published>2017-09-01T02:12:55.000Z</published>
-    <updated>2017-09-01T02:17:52.000Z</updated>
+    <updated>2017-09-01T02:18:37.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="react-navigation-安卓标题栏居中适配方案"><a href="#react-navigation-安卓标题栏居中适配方案" class="headerlink" title="react-navigation 安卓标题栏居中适配方案"></a>react-navigation 安卓标题栏居中适配方案</h1><h2 id="方案一-修改源码"><a href="#方案一-修改源码" class="headerlink" title="方案一 : 修改源码"></a>方案一 : 修改源码</h2><p>  <a href="http://www.jianshu.com/p/d50bcde46df3?utm_campaign=hugo&amp;utm_medium=reader_share&amp;utm_content=note" target="_blank" rel="external">参考这里</a></p>
+    <content type="html"><![CDATA[<h2 id="方案一-修改源码"><a href="#方案一-修改源码" class="headerlink" title="方案一 : 修改源码"></a>方案一 : 修改源码</h2><p>  <a href="http://www.jianshu.com/p/d50bcde46df3?utm_campaign=hugo&amp;utm_medium=reader_share&amp;utm_content=note" target="_blank" rel="external">参考这里</a></p>
 <ul>
 <li><p>【node_modules – react-navigation – src – views – Header.js】的326行代码处，修改为如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">title: &#123;</div><div class="line">bottom: 0,</div><div class="line">left: TITLE_OFFSET,</div><div class="line">right: TITLE_OFFSET,</div><div class="line">top: 0,</div><div class="line">position: &apos;absolute&apos;,</div><div class="line">alignItems: &apos;center&apos;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -46,7 +46,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;react-navigation-安卓标题栏居中适配方案&quot;&gt;&lt;a href=&quot;#react-navigation-安卓标题栏居中适配方案&quot; class=&quot;headerlink&quot; title=&quot;react-navigation 安卓标题栏居中适配方案&quot;&gt;&lt;/a&gt;re
+      &lt;h2 id=&quot;方案一-修改源码&quot;&gt;&lt;a href=&quot;#方案一-修改源码&quot; class=&quot;headerlink&quot; title=&quot;方案一 : 修改源码&quot;&gt;&lt;/a&gt;方案一 : 修改源码&lt;/h2&gt;&lt;p&gt;  &lt;a href=&quot;http://www.jianshu.com/p/d50bcd
     
     </summary>
     
@@ -189,9 +189,9 @@
     
       <category term="react-native" scheme="http://kaelblog.website/tags/react-native/"/>
     
-      <category term="redux" scheme="http://kaelblog.website/tags/redux/"/>
-    
       <category term="编程" scheme="http://kaelblog.website/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="redux" scheme="http://kaelblog.website/tags/redux/"/>
     
   </entry>
   
@@ -2028,9 +2028,9 @@ CGFloat tx, ty;
       <category term="编程" scheme="http://kaelblog.website/categories/programming/"/>
     
     
-      <category term="UIButton" scheme="http://kaelblog.website/tags/UIButton/"/>
-    
       <category term="OC" scheme="http://kaelblog.website/tags/OC/"/>
+    
+      <category term="UIButton" scheme="http://kaelblog.website/tags/UIButton/"/>
     
   </entry>
   

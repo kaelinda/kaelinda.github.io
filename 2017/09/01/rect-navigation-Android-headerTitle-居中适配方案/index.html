@@ -92,25 +92,25 @@
 
 
 
-<meta name="description" content="react-navigation 安卓标题栏居中适配方案方案一 : 修改源码  参考这里
+<meta name="description" content="方案一 : 修改源码  参考这里
 
 【node_modules – react-navigation – src – views – Header.js】的326行代码处，修改为如下：
-12345678title: &amp;#123;bottom: 0,left: TITLE_OFFSET,right: TITLE_OFFSET,top: 0,po">
+12345678title: &amp;#123;bottom: 0,left: TITLE_OFFSET,right: TITLE_OFFSET,top: 0,position: &amp;apos;absolute&amp;apos;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rect-navigation Android headerTitle 居中适配方案">
 <meta property="og:url" content="http://kaelblog.website/2017/09/01/rect-navigation-Android-headerTitle-居中适配方案/index.html">
 <meta property="og:site_name" content="Kaelinda">
-<meta property="og:description" content="react-navigation 安卓标题栏居中适配方案方案一 : 修改源码  参考这里
+<meta property="og:description" content="方案一 : 修改源码  参考这里
 
 【node_modules – react-navigation – src – views – Header.js】的326行代码处，修改为如下：
-12345678title: &amp;#123;bottom: 0,left: TITLE_OFFSET,right: TITLE_OFFSET,top: 0,po">
-<meta property="og:updated_time" content="2017-09-01T02:17:52.000Z">
+12345678title: &amp;#123;bottom: 0,left: TITLE_OFFSET,right: TITLE_OFFSET,top: 0,position: &amp;apos;absolute&amp;apos;">
+<meta property="og:updated_time" content="2017-09-01T02:18:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rect-navigation Android headerTitle 居中适配方案">
-<meta name="twitter:description" content="react-navigation 安卓标题栏居中适配方案方案一 : 修改源码  参考这里
+<meta name="twitter:description" content="方案一 : 修改源码  参考这里
 
 【node_modules – react-navigation – src – views – Header.js】的326行代码处，修改为如下：
-12345678title: &amp;#123;bottom: 0,left: TITLE_OFFSET,right: TITLE_OFFSET,top: 0,po">
+12345678title: &amp;#123;bottom: 0,left: TITLE_OFFSET,right: TITLE_OFFSET,top: 0,position: &amp;apos;absolute&amp;apos;">
 
 
 
@@ -347,7 +347,7 @@
       
 
       
-        <h1 id="react-navigation-安卓标题栏居中适配方案"><a href="#react-navigation-安卓标题栏居中适配方案" class="headerlink" title="react-navigation 安卓标题栏居中适配方案"></a>react-navigation 安卓标题栏居中适配方案</h1><h2 id="方案一-修改源码"><a href="#方案一-修改源码" class="headerlink" title="方案一 : 修改源码"></a>方案一 : 修改源码</h2><p>  <a href="http://www.jianshu.com/p/d50bcde46df3?utm_campaign=hugo&amp;utm_medium=reader_share&amp;utm_content=note" target="_blank" rel="external">参考这里</a></p>
+        <h2 id="方案一-修改源码"><a href="#方案一-修改源码" class="headerlink" title="方案一 : 修改源码"></a>方案一 : 修改源码</h2><p>  <a href="http://www.jianshu.com/p/d50bcde46df3?utm_campaign=hugo&amp;utm_medium=reader_share&amp;utm_content=note" target="_blank" rel="external">参考这里</a></p>
 <ul>
 <li><p>【node_modules – react-navigation – src – views – Header.js】的326行代码处，修改为如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">title: &#123;</div><div class="line">bottom: 0,</div><div class="line">left: TITLE_OFFSET,</div><div class="line">right: TITLE_OFFSET,</div><div class="line">top: 0,</div><div class="line">position: &apos;absolute&apos;,</div><div class="line">alignItems: &apos;center&apos;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -584,7 +584,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#react-navigation-安卓标题栏居中适配方案"><span class="nav-number">1.</span> <span class="nav-text">react-navigation 安卓标题栏居中适配方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方案一-修改源码"><span class="nav-number">1.1.</span> <span class="nav-text">方案一 : 修改源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案二-使用代码中适配"><span class="nav-number">1.2.</span> <span class="nav-text">方案二 : 使用代码中适配</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方案一-修改源码"><span class="nav-number">1.</span> <span class="nav-text">方案一 : 修改源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案二-使用代码中适配"><span class="nav-number">2.</span> <span class="nav-text">方案二 : 使用代码中适配</span></a></li></ol></div>
             
 
           </div>

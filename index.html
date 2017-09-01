@@ -343,10 +343,10 @@
       
         
           
-          react-navigation 安卓标题栏居中适配方案方案一 : 修改源码  参考这里
+          方案一 : 修改源码  参考这里
 
 【node_modules – react-navigation – src – views – Header.js】的326行代码处，修改为如下：
-12345678title: &#123;bottom: 
+12345678title: &#123;bottom: 0,left: TITLE_OFFSET,right: 
           ...
           <!--noindex-->
           <div class="post-button text-center">
