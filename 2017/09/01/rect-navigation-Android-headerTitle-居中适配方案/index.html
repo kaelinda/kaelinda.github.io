@@ -104,7 +104,7 @@
 
 【node_modules – react-navigation – src – views – Header.js】的326行代码处，修改为如下：
 12345678title: &amp;#123;bottom: 0,left: TITLE_OFFSET,right: TITLE_OFFSET,top: 0,po">
-<meta property="og:updated_time" content="2017-09-01T02:17:01.000Z">
+<meta property="og:updated_time" content="2017-09-01T02:17:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rect-navigation Android headerTitle 居中适配方案">
 <meta name="twitter:description" content="react-navigation 安卓标题栏居中适配方案方案一 : 修改源码  参考这里
@@ -354,7 +354,7 @@
 </li>
 <li><p>注释掉170行的内容</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// if (Platform.OS === &apos;android&apos;) &#123;</div><div class="line">//   if (!options.hasLeftComponent) &#123;</div><div class="line">//     style.left = 0;</div><div class="line">//   &#125;</div><div class="line">//   if (!options.hasRightComponent) &#123;</div><div class="line">//     style.right = 0;</div><div class="line">//   &#125;</div><div class="line">// &#125; &#125;</div></pre></td></tr></table></figure>
-<h1 id="方案二-使用代码中适配"><a href="#方案二-使用代码中适配" class="headerlink" title="方案二 : 使用代码中适配"></a>方案二 : 使用代码中适配</h1></li>
+<h2 id="方案二-使用代码中适配"><a href="#方案二-使用代码中适配" class="headerlink" title="方案二 : 使用代码中适配"></a>方案二 : 使用代码中适配</h2></li>
 <li><p>case 1:导航栏只有标题</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">headerTitleStyle:&#123;</div><div class="line"> alignSelf: &apos;center&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -584,7 +584,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#react-navigation-安卓标题栏居中适配方案"><span class="nav-number">1.</span> <span class="nav-text">react-navigation 安卓标题栏居中适配方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方案一-修改源码"><span class="nav-number">1.1.</span> <span class="nav-text">方案一 : 修改源码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方案二-使用代码中适配"><span class="nav-number">2.</span> <span class="nav-text">方案二 : 使用代码中适配</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#react-navigation-安卓标题栏居中适配方案"><span class="nav-number">1.</span> <span class="nav-text">react-navigation 安卓标题栏居中适配方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方案一-修改源码"><span class="nav-number">1.1.</span> <span class="nav-text">方案一 : 修改源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案二-使用代码中适配"><span class="nav-number">1.2.</span> <span class="nav-text">方案二 : 使用代码中适配</span></a></li></ol></li></ol></div>
             
 
           </div>
