@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Kaelinda</title>
-  <subtitle>24K纯男银</subtitle>
+  <subtitle>hexo_subtitle</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaelblog.website/"/>
@@ -189,9 +189,9 @@
     
       <category term="react-native" scheme="http://kaelblog.website/tags/react-native/"/>
     
-      <category term="编程" scheme="http://kaelblog.website/tags/%E7%BC%96%E7%A8%8B/"/>
-    
       <category term="redux" scheme="http://kaelblog.website/tags/redux/"/>
+    
+      <category term="编程" scheme="http://kaelblog.website/tags/%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
