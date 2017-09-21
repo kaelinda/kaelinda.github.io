@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaelblog.website/"/>
-  <updated>2017-09-01T02:18:37.000Z</updated>
+  <updated>2017-09-21T01:35:26.000Z</updated>
   <id>http://kaelblog.website/</id>
   
   <author>
@@ -14,6 +14,81 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://kaelblog.website/2017/09/21/React-Native-ES6%E6%A0%87%E5%87%86%E7%9A%84%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/"/>
+    <id>http://kaelblog.website/2017/09/21/React-Native-ES6标准的模块导入导出/</id>
+    <published>2017-09-21T01:32:10.000Z</published>
+    <updated>2017-09-21T01:35:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="React-Naitve-ES6标准中-模块的导入导出"><a href="#React-Naitve-ES6标准中-模块的导入导出" class="headerlink" title="React-Naitve ES6标准中 模块的导入导出"></a>React-Naitve ES6标准中 模块的导入导出</h1><hr>
+<p><a href="http://lib.csdn.net/article/reactnative/43547" target="_blank" rel="external">原文参考</a></p>
+<hr>
+<h2 id="导出-export"><a href="#导出-export" class="headerlink" title="导出 export"></a>导出 <code>export</code></h2><ul>
+<li><p>默认导出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">export default Calss Foo Extend Componente&#123;</div><div class="line">  render()&#123;</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还可以是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export default foo;</div></pre></td></tr></table></figure>
+<p>默认导出时更名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export &#123;foo as default&#125;;</div></pre></td></tr></table></figure>
+<p>总结：</p>
+<blockquote>
+<p>默认导出在一个类中只能有一个！！ 只能有一个！ 只能有一个！ 只能有一个！ 重要的事情说三遍！ 如果还想导出其他模块，那就用<code>常规导出</code></p>
+</blockquote>
+</li>
+<li><p>常规导出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">// ...</div><div class="line">&#125;</div><div class="line">var awesome = 42;</div><div class="line">var bar = [1,2,3];</div><div class="line">export &#123; foo, awesome, bar &#125;;</div><div class="line">//导出方法、变量、类模块</div></pre></td></tr></table></figure>
+<p>导出时重命名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">function foo() &#123; .. &#125;</div><div class="line">export &#123; foo as bar &#125;;</div></pre></td></tr></table></figure>
+<p>混合默认导出和常规导出,中间用<strong>‘,’</strong>隔开：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function foo() &#123; .. &#125;</div><div class="line">function bar() &#123; .. &#125;</div><div class="line">function baz() &#123; .. &#125;</div><div class="line">export &#123; foo as default, bar, baz, .. &#125;;</div></pre></td></tr></table></figure>
+<p>从其他模块导出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export &#123; foo, bar &#125; from &quot;baz&quot;;</div><div class="line">export &#123; foo as FOO, bar as BAR &#125; from &quot;baz&quot;;</div><div class="line">export * from &quot;baz&quot;;</div></pre></td></tr></table></figure>
+<h2 id="导入-import"><a href="#导入-import" class="headerlink" title="导入 import"></a>导入 import</h2><ul>
+<li><p>默认导入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import foo from &quot;foo&quot;;</div></pre></td></tr></table></figure>
+<p><strong>这种导入方式是跟 <code>export default *</code> 相呼应的</strong></p>
+</li>
+<li><p>常规导入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import foo from &quot;foo&quot;; // or:</div><div class="line">import &#123; foo &#125; from &quot;foo&quot;;//or:</div><div class="line">import &#123; default as foo &#125; from &quot;foo&quot;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>改名导入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import &#123; foo as theFooFunc &#125; from &quot;foo&quot;;</div></pre></td></tr></table></figure>
+<p>另：import 有一个<code>变量提前</code>的过程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">foo();</div><div class="line">import &#123; foo &#125; from &quot;foo&quot;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;React-Naitve-ES6标准中-模块的导入导出&quot;&gt;&lt;a href=&quot;#React-Naitve-ES6标准中-模块的导入导出&quot; class=&quot;headerlink&quot; title=&quot;React-Naitve ES6标准中 模块的导入导出&quot;&gt;&lt;/a&gt;React
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://kaelblog.website/2017/09/06/Site%20Extension/"/>
+    <id>http://kaelblog.website/2017/09/06/Site Extension/</id>
+    <published>2017-09-06T02:37:41.000Z</published>
+    <updated>2017-09-06T02:37:41.000Z</updated>
+    
+    <content type="html"><![CDATA[[]]]></content>
+    
+    <summary type="html">
+    
+      []
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>rect-navigation Android headerTitle 居中适配方案</title>
