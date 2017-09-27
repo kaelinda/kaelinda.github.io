@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kaelblog.website/"/>
-  <updated>2017-09-21T01:40:03.000Z</updated>
+  <updated>2017-09-21T01:56:44.000Z</updated>
   <id>http://kaelblog.website/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://kaelblog.website/2017/09/21/React-Naitve-ES6%E6%A0%87%E5%87%86%E4%B8%AD%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/"/>
     <id>http://kaelblog.website/2017/09/21/React-Naitve-ES6标准中模块的导入导出/</id>
     <published>2017-09-21T01:38:56.000Z</published>
-    <updated>2017-09-21T01:40:03.000Z</updated>
+    <updated>2017-09-21T01:56:44.000Z</updated>
     
     <content type="html"><![CDATA[<hr>
 <p><a href="http://lib.csdn.net/article/reactnative/43547" target="_blank" rel="external">原文参考</a></p>
@@ -33,9 +33,7 @@
 <p>默认导出时更名</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export &#123;foo as default&#125;;</div></pre></td></tr></table></figure>
 <p>总结：</p>
-<blockquote>
-<p>默认导出在一个类中只能有一个！！ 只能有一个！ 只能有一个！ 只能有一个！ 重要的事情说三遍！ 如果还想导出其他模块，那就用<code>常规导出</code></p>
-</blockquote>
+<p>> 默认导出在一个类中只能有一个！！ 只能有一个！ 只能有一个！ 只能有一个！ 重要的事情说三遍！ 如果还想导出其他模块，那就用<code>常规导出</code></p>
 </li>
 <li><p>常规导出</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">// ...</div><div class="line">&#125;</div><div class="line">var awesome = 42;</div><div class="line">var bar = [1,2,3];</div><div class="line">export &#123; foo, awesome, bar &#125;;</div><div class="line">//导出方法、变量、类模块</div></pre></td></tr></table></figure>
@@ -45,7 +43,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function foo() &#123; .. &#125;</div><div class="line">function bar() &#123; .. &#125;</div><div class="line">function baz() &#123; .. &#125;</div><div class="line">export &#123; foo as default, bar, baz, .. &#125;;</div></pre></td></tr></table></figure>
 <p>从其他模块导出：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export &#123; foo, bar &#125; from &quot;baz&quot;;</div><div class="line">export &#123; foo as FOO, bar as BAR &#125; from &quot;baz&quot;;</div><div class="line">export * from &quot;baz&quot;;</div></pre></td></tr></table></figure>
-<h2 id="导入-import"><a href="#导入-import" class="headerlink" title="导入 import"></a>导入 import</h2><ul>
+<p>## 导入 import</p>
+<ul>
 <li><p>默认导入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import foo from &quot;foo&quot;;</div></pre></td></tr></table></figure>
 <p><strong>这种导入方式是跟 <code>export default *</code> 相呼应的</strong></p>

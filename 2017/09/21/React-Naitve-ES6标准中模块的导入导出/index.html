@@ -102,8 +102,7 @@
 默认导出时更名
 1export &amp;#123;foo as default&amp;#125;;
 总结：
-
-默认导出在一个类中只能有一个！">
+&amp;gt; 默认导出在一个类中只能有一个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React-Naitve ES6标准中模块的导入导出">
 <meta property="og:url" content="http://kaelblog.website/2017/09/21/React-Naitve-ES6标准中模块的导入导出/index.html">
@@ -118,9 +117,8 @@
 默认导出时更名
 1export &amp;#123;foo as default&amp;#125;;
 总结：
-
-默认导出在一个类中只能有一个！">
-<meta property="og:updated_time" content="2017-09-21T01:40:03.000Z">
+&amp;gt; 默认导出在一个类中只能有一个">
+<meta property="og:updated_time" content="2017-09-21T01:56:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React-Naitve ES6标准中模块的导入导出">
 <meta name="twitter:description" content="原文参考
@@ -133,8 +131,7 @@
 默认导出时更名
 1export &amp;#123;foo as default&amp;#125;;
 总结：
-
-默认导出在一个类中只能有一个！">
+&amp;gt; 默认导出在一个类中只能有一个">
 
 
 
@@ -382,9 +379,7 @@
 <p>默认导出时更名</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export &#123;foo as default&#125;;</div></pre></td></tr></table></figure>
 <p>总结：</p>
-<blockquote>
-<p>默认导出在一个类中只能有一个！！ 只能有一个！ 只能有一个！ 只能有一个！ 重要的事情说三遍！ 如果还想导出其他模块，那就用<code>常规导出</code></p>
-</blockquote>
+<p>> 默认导出在一个类中只能有一个！！ 只能有一个！ 只能有一个！ 只能有一个！ 重要的事情说三遍！ 如果还想导出其他模块，那就用<code>常规导出</code></p>
 </li>
 <li><p>常规导出</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function foo() &#123;</div><div class="line">// ...</div><div class="line">&#125;</div><div class="line">var awesome = 42;</div><div class="line">var bar = [1,2,3];</div><div class="line">export &#123; foo, awesome, bar &#125;;</div><div class="line">//导出方法、变量、类模块</div></pre></td></tr></table></figure>
@@ -394,7 +389,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function foo() &#123; .. &#125;</div><div class="line">function bar() &#123; .. &#125;</div><div class="line">function baz() &#123; .. &#125;</div><div class="line">export &#123; foo as default, bar, baz, .. &#125;;</div></pre></td></tr></table></figure>
 <p>从其他模块导出：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export &#123; foo, bar &#125; from &quot;baz&quot;;</div><div class="line">export &#123; foo as FOO, bar as BAR &#125; from &quot;baz&quot;;</div><div class="line">export * from &quot;baz&quot;;</div></pre></td></tr></table></figure>
-<h2 id="导入-import"><a href="#导入-import" class="headerlink" title="导入 import"></a>导入 import</h2><ul>
+<p>## 导入 import</p>
+<ul>
 <li><p>默认导入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import foo from &quot;foo&quot;;</div></pre></td></tr></table></figure>
 <p><strong>这种导入方式是跟 <code>export default *</code> 相呼应的</strong></p>
@@ -613,6 +609,10 @@
                   <a href="http://macshuo.com/" title="MacTalk" target="_blank">MacTalk</a>
                 </li>
               
+                <li class="links-of-blogroll-item">
+                  <a href="https://my.yizhihongxing.com/aff.php?aff=7598" title="VPN购买(一枝红杏)" target="_blank">VPN购买(一枝红杏)</a>
+                </li>
+              
             </ul>
           </div>
         
@@ -632,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导出-export"><span class="nav-number">1.</span> <span class="nav-text">导出 export</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导入-import"><span class="nav-number">2.</span> <span class="nav-text">导入 import</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导出-export"><span class="nav-number">1.</span> <span class="nav-text">导出 export</span></a></li></ol></div>
             
 
           </div>
